@@ -63,7 +63,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doClick() {
+        String JN = null;
 
+        if (rbLK.isChecked()) {
+            JN = rbLK.getText().toString();
+        } else if (rbPM.isChecked()) {
+            JN = rbPM.getText().toString();
+        }
+
+        if (JN == null) {
+            tvHasil.setText("Anda belum memilih gander");
+        } else {
+            tvHasil.setText("\n\n Jenis Kelamin : " + JN);
+        }
+
+        String HB = "Hobi Anda : \n";
+        int startlen = HB.length();
+        if (cbCD.isChecked()) HB += cbCD.getText() + "\n";
+        if (cbMB.isChecked()) HB += cbMB.getText() + "\n";
+        if (cbMN.isChecked()) HB += cbMN.getText() + "\n";
+        if (cbBR.isChecked()) HB += cbBR.getText() + "\n";
+
+        if (HB.length() == startlen) HB += "Tidak ada pada Pilihan";
+
+        tvHasil.setText(HB);
     }
 
     public boolean isValid() {
