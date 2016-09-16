@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     EditText etNama;
     EditText etKelas;
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cbCD, cbMB, cbMN, cbBR;
     Spinner spAN;
     Button bOK;
-    TextView tvHasil;
+    TextView tvHasil, tvHobi, tvHasil2;
+    int nbHobi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +41,22 @@ public class MainActivity extends AppCompatActivity {
         cbMN = (CheckBox) findViewById(R.id.checkBoxMN);
         cbBR = (CheckBox) findViewById(R.id.checkBoxBR);
 
+        cbCD.setOnCheckedChangeListener(this);
+        cbMB.setOnCheckedChangeListener(this);
+        cbMN.setOnCheckedChangeListener(this);
+        cbBR.setOnCheckedChangeListener(this);
+
+
         spAN = (Spinner) findViewById(R.id.spinnerAN);
 
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
+        tvHobi = (TextView) findViewById(R.id.textViewHobi);
+        tvHasil2 = (TextView) findViewById(R.id.textViewHasil2);
 
         bOK = (Button) findViewById(R.id.buttonOK);
         bOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doProcess();
                 doClick();
             }
         });
@@ -58,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         if (isValid()) {
             String nama = etNama.getText().toString();
             String kelas = etKelas.getText().toString();
-            tvHasil.setText(nama + " \n\n kelas " + kelas);
+            tvHasil.setText("Nama : " + nama + " \n\n Kelas " + kelas);
         }
     }
 
@@ -77,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             tvHasil.setText("\n\n Jenis Kelamin : " + JN);
         }
 
-        String HB = "Hobi Anda : \n";
+        String HB = "\n\n Hobi Anda : ";
         int startlen = HB.length();
         if (cbCD.isChecked()) HB += cbCD.getText() + "\n";
         if (cbMB.isChecked()) HB += cbMB.getText() + "\n";
@@ -85,8 +94,10 @@ public class MainActivity extends AppCompatActivity {
         if (cbBR.isChecked()) HB += cbBR.getText() + "\n";
 
         if (HB.length() == startlen) HB += "Tidak ada pada Pilihan";
-
-        tvHasil.setText(HB);
+        String nama = etNama.getText().toString();
+        String kelas = etKelas.getText().toString();
+        tvHasil.setText(" \n\n Nama : " + nama + " \n\n Kelas : " + kelas + HB + "\n Jenis Kelamin : " + JN + "\n\n\n");
+        tvHasil2.setText("Terimakasih telah bergabung di Sedekah Bermanfaat. \n Semoga menjadi amal sholeh kita.");
     }
 
     public boolean isValid() {
@@ -113,5 +124,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) nbHobi += 1;
+        else nbHobi -= 1;
+
+        tvHobi.setText("Hobi(" + nbHobi + " terpilih)");
+
     }
 }

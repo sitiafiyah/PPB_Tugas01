@@ -14,77 +14,76 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="id.sch.smktelkom_mlg.tugas01.xirpl5033.sedekahbermanfaat.MainActivity"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context="id.sch.smktelkom_mlg.tugas01.xirpl5033.sedekahbermanfaat.MainActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="302dp"
         android:layout_height="164dp"
-        android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/sedekah"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/sedekah" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pendaftaran Anggota"
         android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Pendaftaran Anggota"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp" />
+        android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nama"
-        android:id="@+id/textView2"
-        android:layout_marginTop="25dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <EditText
+        android:id="@+id/editTextNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextNama" />
+        android:hint="Nama" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kelas"
-        android:id="@+id/textView3"
-        android:layout_marginTop="20dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <EditText
+        android:id="@+id/editTextKelas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextKelas" />
-
+        android:hint="Kelas" />
+    </android.support.design.widget.TextInputLayout>
     <RadioGroup
+        android:id="@+id/radioGroupJK"
         android:layout_width="354dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.04"
-        android:id="@+id/radioGroupJK">
+        android:layout_weight="0.04">
 
         <TextView
+            android:id="@+id/textViewJK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jenis Kelamin"
-            android:id="@+id/textView4"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:text="Jenis Kelamin" />
 
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Laki - Laki"
             android:id="@+id/radioButtonLK"
-            android:checked="false" />
-
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Perempuan"
+            android:checked="false"
+            android:text="Laki - Laki" />
+
+        <RadioButton
             android:id="@+id/radioButtonPM"
-            android:checked="false" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Perempuan" />
     </RadioGroup>
 
     <RadioGroup
@@ -92,39 +91,39 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textViewHobi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hobi"
-            android:id="@+id/textView5"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:text="Hobi" />
 
         <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Coding"
             android:id="@+id/checkBoxCD"
-            android:checked="false" />
-
-        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Membaca"
+            android:checked="false"
+            android:text="Coding" />
+
+        <CheckBox
             android:id="@+id/checkBoxMB"
-            android:checked="false" />
-
-        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menulis"
+            android:checked="false"
+            android:text="Membaca" />
+
+        <CheckBox
             android:id="@+id/checkBoxMN"
-            android:checked="false" />
-
-        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berenang"
+            android:checked="false"
+            android:text="Menulis" />
+
+        <CheckBox
             android:id="@+id/checkBoxBR"
-            android:checked="false" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Berenang" />
     </RadioGroup>
 
     <RadioGroup
@@ -132,33 +131,45 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Angkatan"
-            android:id="@+id/textView6"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:text="Angkatan" />
 
         <Spinner
+            android:id="@+id/spinnerAN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/angkatan"
-            android:id="@+id/spinnerAN" />
+            android:entries="@array/angkatan" />
     </RadioGroup>
 
     <Button
+        android:id="@+id/buttonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DAFTAR"
-        android:id="@+id/buttonOK"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:text="DAFTAR" />
 
     <TextView
+        android:id="@+id/textViewHasil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewHasil"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="#bf360c"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textViewHasil2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
 </LinearLayout>
 </ScrollView>
